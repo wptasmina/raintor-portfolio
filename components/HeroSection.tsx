@@ -29,7 +29,7 @@ export default function HeroSection() {
 
         {/* Subtext */}
         <p className="text-gray-700 text-lg mb-8 max-w-2xl">
-          Building the world’s best marketing websites for over a decade. <br />
+          Building the world&apos;s best marketing websites for over a decade. <br />
           Your trusted partner for strategy, design, and dev.
         </p>
 
