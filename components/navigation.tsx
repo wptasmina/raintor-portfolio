@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, CircleArrowRight } from "lucide-react";
 import CustomButton from "./ui/sheard/CustomButton";
-import { CircleArrowRight } from "lucide-react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isLoading, setIsLoading] = useState(false); // ✅ Added loading state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +44,15 @@ export function Navigation() {
     setIsOpen(false);
   };
 
+  // ✅ Loading simulation handler
+  const handleScrollWithLoading = (sectionId: string) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      scrollToSection(sectionId);
+      setIsLoading(false);
+    }, 1000); // 1 second fake loading
+  };
+
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -52,7 +61,7 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-gray-50  dark:border-gray-800 z-50">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-gray-50 dark:border-gray-800 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold">DEVLOP.ME</div>
@@ -73,17 +82,16 @@ export function Navigation() {
               </button>
             ))}
 
-            {/* CustomButton is outside the navItems */}
             <CustomButton
               text="Start Project"
               icon={<CircleArrowRight size={28} />}
               iconPosition="left"
-              // className="ml-4"
-              onClick={() => scrollToSection("portfolio")}
+              loading={isLoading}
+              onClick={() => handleScrollWithLoading("portfolio")}
             />
           </div>
 
-          {/* Mobile Navigation Button */}
+          {/* Mobile Navigation Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -111,12 +119,12 @@ export function Navigation() {
                   {item.label}
                 </button>
               ))}
-              {/* Mobile-only CustomButton */}
               <CustomButton
-                text="Continue"
-                iconPosition="right"
+                text="Start Project"
                 icon={<CircleArrowRight size={24} />}
-                onClick={() => scrollToSection("portfolio")}
+                iconPosition="right"
+                loading={isLoading}
+                onClick={() => handleScrollWithLoading("portfolio")}
               />
             </div>
           </div>

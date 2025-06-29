@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import React from "react";
 
 type CustomButtonProps = {
   text?: string;
@@ -8,6 +9,7 @@ type CustomButtonProps = {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  loading?: boolean; // new loading prop
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -17,30 +19,54 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   className = "",
   onClick,
   type = "button",
+  loading = false,
 }) => {
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick={loading ? undefined : onClick} // disable click while loading
+      disabled={loading}
       className={cn(
-        "group flex items-center gap-2 px-4 py-2 rounded-full dark:bg-gray-950 bg-white hover:bg-white border border-[#060606] dark:border-gray-800 font-bold text-sm transition-all active:scale-95 cursor-pointer dark:shadow",
+        "group flex items-center justify-center gap-2 px-4 py-2 rounded-full dark:bg-gray-950 bg-white hover:bg-white border border-[#060606] dark:border-gray-800 font-bold text-sm transition-all active:scale-95 cursor-pointer dark:shadow disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
     >
-      {/* {icon && iconPosition === "left" && <span>{icon}</span>}
-      {text && <span>{text}</span>}
-      {icon && iconPosition === "right" && <span>{icon}</span>} */}
-
-      {icon && iconPosition === "left" && (
-        <span className="transition-transform duration-300 ease-in-out group-hover:translate-x-1">
-          {icon}
-        </span>
-      )}
-      {text && <span>{text}</span>}
-      {icon && iconPosition === "right" && (
-        <span className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1">
-          {icon}
-        </span>
+      {loading ? (
+        <svg
+          className="animate-spin h-5 w-5 text-gray-900 dark:text-gray-200"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          aria-label="loading"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          ></path>
+        </svg>
+      ) : (
+        <>
+          {icon && iconPosition === "left" && (
+            <span className="transition-transform duration-300 ease-in-out group-hover:translate-x-1">
+              {icon}
+            </span>
+          )}
+          {text && <span>{text}</span>}
+          {icon && iconPosition === "right" && (
+            <span className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1">
+              {icon}
+            </span>
+          )}
+        </>
       )}
     </button>
   );
