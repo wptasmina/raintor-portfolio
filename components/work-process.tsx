@@ -30,22 +30,24 @@ export default function WorkProcess() {
   return (
     <section className="bg-[#141414] dark:bg-gray-950 text-white border dark:border-gray-800 rounded-2xl overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header buttons */}
-        <div className="flex items-center gap-4 mb-8">
-          <button className="flex items-center justify-center h-10 w-10 border border-gray-600 rounded-full hover:bg-gray-800 transition">
-            <MoveDown className="w-4 h-4" />
-          </button>
-          <button className="flex items-center space-x-2 border border-gray-600 rounded-full px-4 py-2 text-sm md:text-base hover:bg-gray-800 transition">
-            <span>Why Choose Me</span>
-          </button>
-        </div>
+     {/* Header buttons and title in one flex container */}
+<div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-12">
+  {/* Buttons group */}
+  <div className="flex items-center left-0">
+    <button className="flex items-center justify-center h-10 w-10 border border-gray-600 rounded-full hover:bg-gray-800 transition">
+      <MoveDown className="w-4 h-4" />
+    </button>
+    <button className="flex items-center space-x-2 border border-gray-600 rounded-full px-4 py-2 text-sm md:text-base hover:bg-gray-800 transition">
+      <span>Why Choose Me</span>
+    </button>
+  </div>
 
-        {/* Section title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            My Work Process
-          </h1>
-        </div>
+  {/* Title */}
+  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center w-full md:w-auto">
+    My Work Process
+  </h1>
+</div>
+
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

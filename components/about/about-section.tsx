@@ -2,12 +2,6 @@
 
 import { MoveDown} from "lucide-react";
 
-// type FeatureItem = {
-//   icon: React.ReactNode;
-//   title: string;
-//   description: string;
-// };
-
 export default function About() {
 
   return (

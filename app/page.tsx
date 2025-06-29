@@ -1,4 +1,5 @@
 import About from "@/components/about/about-section";
+import Contact from "@/components/contact/Contact";
 import FeatureSection from "@/components/Features/FeatureSection";
 import { Hero } from "@/components/hero";
 import WorkProcess from "@/components/work-process";
@@ -16,9 +17,7 @@ export default function Home() {
       <FeatureSection />
       <About />
       <WorkProcess />
-      {/* <Skills />
-      <Projects />
-      <Contact /> */}
+      <Contact />
      </div>
     </main>
   );
