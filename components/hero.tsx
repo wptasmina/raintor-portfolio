@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import SectionTitle from "./ui/sheard/SectionTitle"
+import Title from "./ui/sheard/Title"
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -15,14 +17,14 @@ export function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold">
-            JD
-          </div>
-          <h1 className="text-4xl sm:text-6xl font-bold mb-4">
-            Hi, I&apos;m
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">John Doe</span>
-          </h1>
-          <p className="text-xl sm:text-2xl text-muted-foreground mb-8">Full Stack Developer & UI/UX Designer</p>
+          {/* <SectionTitle
+          heading="Trusted Partene for Your Website Develop."
+          subHeading={"Building the worlds best marketing websites for over a decade. Your trusted partner for strategy, design, and dev."}
+          /> */}
+          <Title
+           heading="Trusted Partene for Your Website Develop."
+          />
+        
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             I create beautiful, functional, and user-centered digital experiences. Passionate about clean code, modern
             design, and innovative solutions.
