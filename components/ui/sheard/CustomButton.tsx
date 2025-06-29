@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { cn } from "@/lib/utils";
 
 type CustomButtonProps = {
@@ -11,11 +9,6 @@ type CustomButtonProps = {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
 };
-
-
-
-
-
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text = "Click me",
@@ -30,7 +23,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       type={type}
       onClick={onClick}
       className={cn(
-        "group flex items-center gap-2 px-5 py-2.5 rounded-full bg-lime-300 hover:bg-lime-400 font-bold text-sm transition-all active:scale-95",
+        "group flex items-center gap-2 px-4 py-2 rounded-full dark:bg-gray-950 bg-white hover:bg-white border border-[#060606] dark:border-gray-800 font-bold text-sm transition-all active:scale-95 cursor-pointer dark:shadow",
         className
       )}
     >
@@ -39,13 +32,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       {icon && iconPosition === "right" && <span>{icon}</span>} */}
 
       {icon && iconPosition === "left" && (
-        <span className="mr-2 transition-transform duration-300 ease-in-out group-hover:-translate-x-1">
+        <span className="transition-transform duration-300 ease-in-out group-hover:translate-x-1">
           {icon}
         </span>
       )}
       {text && <span>{text}</span>}
       {icon && iconPosition === "right" && (
-        <span className="ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1">
+        <span className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1">
           {icon}
         </span>
       )}
