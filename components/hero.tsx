@@ -14,8 +14,8 @@ export function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 border">
+      <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           {/* <SectionTitle
           heading="Trusted Partene for Your Website Develop."
