@@ -1,60 +1,75 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
-import SectionTitle from "./ui/sheard/SectionTitle"
-import Title from "./ui/sheard/Title"
+import { Facebook, Instagram, Phone, Twitter } from "lucide-react";
+import Link from "next/link";
+import CustomButton from "./ui/sheard/CustomButton";
+
+// import { Button } from "@/components/ui/button"
+// import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+// import SectionTitle from "./ui/sheard/SectionTitle"
+// import Title from "./ui/sheard/Title"
 
 export function Hero() {
-  const scrollToAbout = () => {
-    const element = document.getElementById("about")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 border">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8">
-          {/* <SectionTitle
-          heading="Trusted Partene for Your Website Develop."
-          subHeading={"Building the worlds best marketing websites for over a decade. Your trusted partner for strategy, design, and dev."}
-          /> */}
-          <Title
-           heading="Trusted Partene for Your Website Develop."
-          />
-        
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Building the worlds best marketing websites for over a decade. Your trusted partner for strategy, design, and dev.
+    <section className="py-32 min-h-screen overflow-hidden relative">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16 md:px-4">
+        <div className="lg:max-w-3xl">
+          {/* Heading */}
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-black dark:text-white mb-8">
+            Trusted
+            <span className="bg-black text-white px-2 rounded-lg mb-8">
+              Partner
+            </span>
+            for Your Website
+            <span className="bg-black text-white px-2 rounded-lg">
+              Develop.
+            </span>
+          </h1>
+
+          {/* Subtext */}
+          <p className="text-gray-700 text-lg mb-8 max-w-2xl">
+            Building the world&aposh;s best marketing websites for over a
+            decade. <br />
+            Your trusted partner for strategy, design, and dev.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button size="lg" className="w-full sm:w-auto">
-            View My Work
-          </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto bg-background text-foreground">
-            Download Resume
-          </Button>
+        <div>
+          {/* <div className="relative z-10"> */}
+          {/* Side Social */}
+          <div className="absolute left-0 flex items-center">
+            <p className="-rotate-90 text-sm font-semibold text-gray-700">
+              @williamwoy
+            </p>
+            <div className=" -rotate-90 left-0 flex gap-2">
+              <Link href="#">
+                <Facebook className="w-4 h-4" />
+              </Link>
+              <Link href="#">
+                <Instagram className="w-4 h-4" />
+              </Link>
+              <Link href="#">
+                <Twitter className="w-4 h-4" />
+              </Link>
+            </div>
+            {/* </div> */}
+          </div>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Building the worlds best marketing websites for over a decade. Your
+            trusted partner for strategy, design, and dev.
+          </p>
+          <CustomButton
+            text="Schedule a Call"
+            icon={<Phone size={20} />}
+            iconPosition="left"
+          />
         </div>
 
-        <div className="flex justify-center space-x-6 mb-12">
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Github className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Linkedin className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Mail className="h-6 w-6" />
-          </Button>
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+          {/* button  */}
         </div>
-
-        <Button variant="ghost" size="icon" onClick={scrollToAbout} className="animate-bounce">
-          <ArrowDown className="h-6 w-6" />
-        </Button>
       </div>
     </section>
-  )
+  );
 }
