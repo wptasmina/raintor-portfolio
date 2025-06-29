@@ -1,37 +1,57 @@
 "use client";
-
-import { Code2, MoveDown, Rocket, Shield } from "lucide-react";
-import Link from "next/link";
-import { ReactNode } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import {
+  Paintbrush2,
+  FileCode,
+  LayoutTemplate,
+  Braces,
+  Atom,
+  Component,
+  MoveDown,
+} from "lucide-react";
+
 type FeatureItem = {
-  icon: ReactNode;
+  icon: React.ReactNode;
   title: string;
   description: string;
 };
 
 export default function FeatureSection() {
-  const features: FeatureItem[] = [
-    {
-      icon: <Rocket className="w-10 h-10 text-indigo-500 mb-4" />,
-      title: "Shooting Stars",
-      description:
-        "Launch your project with blazing speed and efficiency using modern tools and workflows.",
-    },
-    {
-      icon: <Code2 className="w-10 h-10 text-indigo-500 mb-4" />,
-      title: "The Catalyzer",
-      description:
-        "Empower your business with code that scales—clean, efficient, and built for growth.",
-    },
-    {
-      icon: <Shield className="w-10 h-10 text-indigo-500 mb-4" />,
-      title: "The 400 Blows",
-      description:
-        "Robust security and protection ensure your applications remain safe and reliable.",
-    },
-  ];
+
+const features: FeatureItem[] = [
+  {
+    icon: <FileCode className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "HTML",
+    description: "Semantic, accessible markup for robust web structure.",
+  },
+  {
+    icon: <Paintbrush2 className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "CSS",
+    description: "Modern styling with Flexbox, Grid, and responsive design.",
+  },
+  {
+    icon: <Braces className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "JavaScript",
+    description: "Powerful scripting for dynamic and interactive experiences.",
+  },
+  {
+    icon: <Atom className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "React.js",
+    description: "Component-based UI library for building fast interfaces.",
+  },
+  {
+    icon: <Component className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "Next.js",
+    description: "Full-stack React framework with SSR and routing.",
+  },
+  {
+    icon: <LayoutTemplate className="w-10 h-10 text-indigo-500 mb-4" />,
+    title: "Vue.js",
+    description: "Lightweight reactive framework for modular UIs.",
+  },
+];
+
 
   return (
     <section className="bg-black dark:bg-gray-950 text-white dark:text-gray-300 border dark:border-gray-800 rounded-2xl overflow-hidden">
@@ -88,23 +108,6 @@ export default function FeatureSection() {
                   <p className="text-base text-gray-600 dark:text-gray-400 mb-4">
                     {feature.description}
                   </p>
-                  <Link
-                    href="#"
-                    className="text-indigo-500 dark:text-indigo-400 inline-flex items-center mt-auto"
-                  >
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      className="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </Link>
                 </div>
               </div>
             </div>
