@@ -4,10 +4,6 @@ import { Facebook, Instagram, Phone, Twitter } from "lucide-react";
 import Link from "next/link";
 import CustomButton from "./ui/sheard/CustomButton";
 
-// import { Button } from "@/components/ui/button"
-// import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
-// import SectionTitle from "./ui/sheard/SectionTitle"
-// import Title from "./ui/sheard/Title"
 
 export function Hero() {
   return (
@@ -25,13 +21,6 @@ export function Hero() {
               Develop.
             </span>
           </h1>
-
-          {/* Subtext */}
-          <p className="text-gray-700 text-lg mb-8 max-w-2xl">
-            Building the world&aposh;s best marketing websites for over a
-            decade. <br />
-            Your trusted partner for strategy, design, and dev.
-          </p>
         </div>
 
         <div>

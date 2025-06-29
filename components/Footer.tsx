@@ -1,128 +1,137 @@
+"use client";
+
 import React from "react";
 
-interface MenuItem {
-  title: string;
-  links: {
-    text: string;
-    url: string;
-  }[];
-}
+type FooterLinkProps = {
+  href: string;
+  children: React.ReactNode;
+};
 
-interface FooterProps {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  tagline?: string;
-  menuItems?: MenuItem[];
-  copyright?: string;
-  bottomLinks?: {
-    text: string;
-    url: string;
-  }[];
-}
+const FooterLink = ({ href, children }: FooterLinkProps) => (
+  <a
+    href={href}
+    className="text-gray-400 hover:text-white hover:underline transition-colors duration-300"
+  >
+    {children}
+  </a>
+);
 
-const Footer = ({
-  logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "DEVLOP.ME",
-    url: "https://www.shadcnblocks.com",
-  },
-  tagline = "Components made easy.",
-  menuItems = [
-    {
-      title: "Product",
-      links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
-      ],
-    },
-  ],
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
-  bottomLinks = [
-    { text: "BESNIK", url: "#" },
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
-}: FooterProps) => {
+type SectionTitleProps = {
+  children: React.ReactNode;
+};
+
+const SectionTitle = ({ children }: SectionTitleProps) => (
+  <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+    {children}
+  </h3>
+);
+
+const Footer = () => {
   return (
-    <footer className="bg-black rounded-3xl dark:bg-black py-20 text-gray-700 dark:text-gray-300">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
-          <div className="col-span-2">
-            <a href={logo.url} className="flex items-center space-x-2">
-              <span className="text-xl font-semibold">{logo.title}</span>
-            </a>
-            <p className="mt-4 text-sm font-medium">{tagline}</p>
+    <footer className="bg-black text-gray-300 font-sans w-full rounded-3xl shadow-lg">
+      <div className="max-w-7xl mx-auto px-8 md:px-12 py-12">
+        {/* Header Title and Grid */}
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12">
+          <div className="mb-8 md:mb-0">
+            <h1 className="text-2xl font-bold text-white uppercase tracking-widest">
+              DEVLOP.ME
+            </h1>
           </div>
+          <div className="w-full md:w-auto">
+            <div>
+              <h2 className="text-4xl md:text-5xl text-center font-bold text-white tracking-tight mb-10">
+                As you can
+              </h2>
 
-          {menuItems.map((section, idx) => (
-            <div key={idx}>
-              <h3 className="mb-4 font-semibold text-[#C5FF41] dark:text-white">
-                {section.title}
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-                {section.links.map((link, i) => (
-                  <li key={i}>
-                    <a
-                      href={link.url}
-                      className="hover:text-primary dark:hover:text-white transition-colors"
-                    >
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                {/* Say Hello */}
+                <div>
+                  <SectionTitle>Say hello</SectionTitle>
+                  <ul className="space-y-3">
+                    <li>
+                      <FooterLink href="mailto:hello@devlop.me.com">
+                        HELLO@DEVLOP.ME.COM
+                      </FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="mailto:mahbubul@me.com">
+                        MAHBUBUL@ME.COM
+                      </FooterLink>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Call */}
+                <div>
+                  <SectionTitle>Call</SectionTitle>
+                  <ul className="space-y-3">
+                    <li>
+                      <FooterLink href="tel:+784549498100">
+                        +784 549 4981 00
+                      </FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="tel:+88450100211">
+                        +8845 0100 211
+                      </FooterLink>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Menu */}
+                <div>
+                  <SectionTitle>Menu</SectionTitle>
+                  <ul className="space-y-3">
+                    <li>
+                      <FooterLink href="/home">HOME</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="/about">ABOUT</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="/portfolio">PORTFOLIO</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="/blog">BLOG</FooterLink>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Social */}
+                <div>
+                  <SectionTitle>Social</SectionTitle>
+                  <ul className="space-y-3">
+                    <li>
+                      <FooterLink href="#">TWITTER</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="#">INSTAGRAM</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="#">FACEBOOK</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="#">BEHANCE</FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="#">DRIBBBLE</FooterLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="mt-16 border-t border-gray-200 dark:border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 dark:text-gray-400 gap-4">
-          <p>{copyright}</p>
-          <ul className="flex space-x-4">
-            {bottomLinks.map((link, i) => (
-              <li key={i}>
-                <a
-                  href={link.url}
-                  className="underline hover:text-primary dark:hover:text-white transition-colors"
-                >
-                  {link.text}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-gray-800">
+          <p className="font-bold text-white mb-4 md:mb-0">BESNIK</p>
+          <p className="mb-4 md:mb-0">&copy; devlop.me 2022</p>
+          <div className="flex space-x-4">
+            <FooterLink href="/privacy">PRIVACY</FooterLink>
+            <span>-</span>
+            <FooterLink href="/terms">TERMS</FooterLink>
+          </div>
         </div>
       </div>
     </footer>
