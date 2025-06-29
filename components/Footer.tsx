@@ -28,12 +28,12 @@ const SectionTitle = ({ children }: SectionTitleProps) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-300 font-sans w-full rounded-3xl shadow-lg">
+    <footer className="bg-black text-gray-300 rounded-3xl py-4 font-sans w-full rounded-3xl shadow-lg">
       <div className="max-w-7xl mx-auto px-8 md:px-12 py-12">
         {/* Header Title and Grid */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-12">
           <div className="mb-8 md:mb-0">
-            <h1 className="text-2xl font-bold text-white uppercase tracking-widest">
+            <h1 className="text-2xl text-[#c5ff41] font-bold uppercase tracking-widest">
               DEVLOP.ME
             </h1>
           </div>
@@ -43,7 +43,7 @@ const Footer = () => {
                 As you can
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Say Hello */}
                 <div>
                   <SectionTitle>Say hello</SectionTitle>
@@ -61,23 +61,8 @@ const Footer = () => {
                   </ul>
                 </div>
 
-                {/* Call */}
-                <div>
-                  <SectionTitle>Call</SectionTitle>
-                  <ul className="space-y-3">
-                    <li>
-                      <FooterLink href="tel:+784549498100">
-                        +784 549 4981 00
-                      </FooterLink>
-                    </li>
-                    <li>
-                      <FooterLink href="tel:+88450100211">
-                        +8845 0100 211
-                      </FooterLink>
-                    </li>
-                  </ul>
-                </div>
-
+       
+                
                 {/* Menu */}
                 <div>
                   <SectionTitle>Menu</SectionTitle>
@@ -96,6 +81,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
+
 
                 {/* Social */}
                 <div>
@@ -118,13 +104,30 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
+
+                <div>
+                  <SectionTitle>Call</SectionTitle>
+                  <ul className="space-y-3">
+                    <li>
+                      <FooterLink href="tel:+784549498100">
+                        +784 549 4981 00
+                      </FooterLink>
+                    </li>
+                    <li>
+                      <FooterLink href="tel:+88450100211">
+                        +8845 0100 211
+                      </FooterLink>
+                    </li>
+                  </ul>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-gray-800">
+        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p className="font-bold text-white mb-4 md:mb-0">BESNIK</p>
           <p className="mb-4 md:mb-0">&copy; devlop.me 2022</p>
           <div className="flex space-x-4">
