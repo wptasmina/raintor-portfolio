@@ -56,7 +56,7 @@ const features: FeatureItem[] = [
   return (
     <section className="bg-black dark:bg-gray-950 text-white dark:text-gray-300 border dark:border-gray-800 rounded-2xl overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex justify-start gap-2 mb-12">
+        <div className="flex justify-start mb-12">
           <button className="flex items-center justify-center h-10 w-10 border border-gray-600 rounded-full hover:bg-gray-800 transition-colors duration-300">
             <MoveDown className="w-4 h-4" />
           </button>
