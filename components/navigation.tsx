@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, CircleArrowRight } from "lucide-react";
 import CustomButton from "./ui/sheard/CustomButton";
+import { ModeToggle } from "./ModeToggle";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +82,7 @@ export function Navigation() {
                 {item.label}
               </button>
             ))}
-
+            <div><ModeToggle /></div>
             <CustomButton
               text="Start Project"
               icon={<CircleArrowRight size={28} />}
