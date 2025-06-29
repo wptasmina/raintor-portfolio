@@ -26,8 +26,7 @@ export function Hero() {
           />
         
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            I create beautiful, functional, and user-centered digital experiences. Passionate about clean code, modern
-            design, and innovative solutions.
+            Building the worlds best marketing websites for over a decade. Your trusted partner for strategy, design, and dev.
           </p>
         </div>
 
