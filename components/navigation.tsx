@@ -10,7 +10,7 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"]
+      const sections = ["home", "about", "portfolio", "blog"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -50,7 +50,7 @@ export function Navigation() {
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-gray-50  dark:border-gray-800 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold">Portfolio</div>
+          <div className="text-2xl font-bold">DEVLOP.ME</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 cursor-pointer">
