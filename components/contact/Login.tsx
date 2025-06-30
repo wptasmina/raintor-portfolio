@@ -11,7 +11,7 @@ const Login = () => {
         <form className="space-y-6">
           {/* Name Input */}
           <div>
-            <label htmlFor="name" className="block text-base font-medium text-gray-300 mb-1">
+            <label htmlFor="name" className="block text-left text-base font-medium text-gray-300 mb-1">
               Enter your name
             </label>
             <input
@@ -23,7 +23,7 @@ const Login = () => {
 
           {/* Email Input */}
           <div>
-            <label htmlFor="email" className="block text-base font-medium text-gray-300 mb-1">
+            <label htmlFor="email" className="block  text-left text-base font-medium text-gray-300 mb-1">
               Your email address
             </label>
             <input
@@ -35,7 +35,7 @@ const Login = () => {
 
           {/* Project Description Textarea */}
           <div>
-            <label htmlFor="project" className="block text-base font-medium text-gray-300 mb-1">
+            <label htmlFor="project" className="block  text-left text-base font-medium text-gray-300 mb-1">
               Describe your project
             </label>
             <input

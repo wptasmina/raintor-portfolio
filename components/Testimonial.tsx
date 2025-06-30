@@ -1,144 +1,131 @@
-// "use client";
+"use client";
 
-// import React, { useEffect, useRef } from "react";
-// import Glide from "@glidejs/glide";
-// import "@glidejs/glide/dist/css/glide.core.min.css"; // Import glide styles
+import {
+  Code2,
+  Rocket,
+  Shield,
+  Brush,
+  Smartphone,
+  Settings,
+  ChevronDown,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
+import { ReactNode, useRef } from "react";
 
-// type Testimonial = {
-//   initials: string;
-//   name: string;
-//   title: string;
-//   message: string;
-//   gradient: string;
-// };
+type FeatureItem = {
+  icon: ReactNode;
+  title: string;
+  description: string;
+};
 
-// const testimonials: Testimonial[] = [
-//   {
-//     initials: "JD",
-//     name: "John Doe",
-//     title: "CEO, TechCorp",
-//     message: "This service transformed our business.",
-//     gradient: "from-purple-500 to-pink-600",
-//   },
-//   {
-//     initials: "AS",
-//     name: "Alice Smith",
-//     title: "Marketing Director",
-//     message: "We saw a 300% increase in engagement.",
-//     gradient: "from-blue-500 to-teal-400",
-//   },
-//   {
-//     initials: "RJ",
-//     name: "Robert Johnson",
-//     title: "Founder, Startup",
-//     message: "The team understood our vision perfectly.",
-//     gradient: "from-amber-500 to-red-500",
-//   },
-// ];
+export default function FeatureSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-// export default function TestimonialSlider() {
-//   const glideRootRef = useRef<HTMLDivElement | null>(null);
+  const features: FeatureItem[] = [
+    {
+      icon: <Rocket className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "Shooting Stars",
+      description: "Launch your project with blazing speed using modern tools.",
+    },
+    {
+      icon: <Code2 className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "The Catalyzer",
+      description: "Code that scales—clean, efficient, and built for growth.",
+    },
+    {
+      icon: <Shield className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "The 400 Blows",
+      description: "Security-first development practices for reliability.",
+    },
+    {
+      icon: <Brush className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "Creative UI",
+      description: "Stunning, accessible, user-first interfaces and systems.",
+    },
+    {
+      icon: <Smartphone className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "Responsive Design",
+      description: "Optimized for all screens — mobile, tablet, desktop.",
+    },
+    {
+      icon: <Settings className="w-10 h-10 text-indigo-500 mb-4" />,
+      title: "Custom Integrations",
+      description: "APIs and automation built for your exact workflow.",
+    },
+  ];
 
-//   useEffect(() => {
-//     if (!glideRootRef.current) return;
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
 
-//     const glideInstance = new Glide(glideRootRef.current, {
-//       type: "carousel",
-//       perView: 3,
-//       focusAt: "center",
-//       gap: 35,
-//       autoplay: 3000,
-//       hoverpause: true,
-//       animationDuration: 300,
-//       peek: { before: 0, after: 100 },
-//       breakpoints: {
-//         1024: { perView: 2, peek: 0 },
-//         768: { perView: 1, peek: { before: 50, after: 50 } },
-//         576: { perView: 1, peek: { before: 24, after: 24 } },
-//       },
-//     });
+  return (
+    <section className="bg-black dark:bg-gray-950 text-white border dark:border-gray-800 rounded-2xl overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div className="flex justify-start mb-12">
+          <button className="flex items-center space-x-2 border border-gray-600 rounded-full px-4 py-2 text-sm md:text-base hover:bg-gray-800 transition">
+            <ChevronDown className="w-4 h-4" />
+            <span>Why Choose Me</span>
+          </button>
+        </div>
 
-//     glideInstance.mount();
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16">
+          <div className="w-full md:w-1/2">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              My Extensive <br /> List of Skills
+            </h1>
+          </div>
 
-//     return () => {
-//       glideInstance.destroy();
-//     };
-//   }, []);
+          <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right">
+            <p className="text-gray-400 text-base md:text-lg mb-8 max-w-md">
+              Building the world’s best marketing. Your trusted partner for
+              strategy, design, and dev.
+            </p>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => scroll("left")}
+                className="p-3 border border-gray-600 rounded-full hover:bg-gray-800 transition"
+              >
+                <ArrowLeft className="w-5 h-5 text-gray-400" />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="p-3 border border-gray-600 rounded-full hover:bg-gray-800 transition"
+              >
+                <ArrowRight className="w-5 h-5 text-gray-400" />
+              </button>
+            </div>
+          </div>
+        </div>
 
-//   return (
-//     <section className="py-20 bg-white dark:bg-black">
-//       <div className="container mx-auto px-6">
-//         <div className="text-center mb-12">
-//           <p className="inline-block bg-gray-100 dark:bg-gray-900 px-5 py-2 rounded-full text-xs uppercase text-gray-600 dark:text-gray-300 mb-4">
-//             Testimonial
-//           </p>
-//           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
-//             Elevate Your Brand with Our Expert Solutions
-//           </h2>
-//         </div>
-
-//         <div ref={glideRootRef} className="glide relative">
-//           <div className="glide__track" data-glide-el="track">
-//             <ul className="glide__slides">
-//               {testimonials.map((t, i) => (
-//                 <li key={i} className="glide__slide px-5 my-10">
-//                   <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-//                     <div className="flex items-center mb-4">
-//                       <div
-//                         className={`w-14 h-14 rounded-full bg-gradient-to-r ${t.gradient} flex items-center justify-center text-lg font-bold text-white mr-4`}
-//                       >
-//                         {t.initials}
-//                       </div>
-//                       <div>
-//                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-//                           {t.name}
-//                         </h3>
-//                         <p className="text-sm text-gray-500 dark:text-gray-400">
-//                           {t.title}
-//                         </p>
-//                       </div>
-//                     </div>
-//                     <p className="italic text-gray-700 dark:text-gray-300">
-//                       "{t.message}"
-//                     </p>
-//                   </div>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           <div
-//             className="glide__arrows hidden md:flex absolute top-1/2 -translate-y-1/2 w-full justify-between px-4"
-//             data-glide-el="controls"
-//           >
-//             <button
-//               className="glide__arrow glide__arrow--left bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 p-3 rounded-full text-black dark:text-white"
-//               data-glide-dir="<"
-//             >
-//               ‹
-//             </button>
-//             <button
-//               className="glide__arrow glide__arrow--right bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 p-3 rounded-full text-black dark:text-white"
-//               data-glide-dir=">"
-//             >
-//               ›
-//             </button>
-//           </div>
-
-//           <div
-//             className="glide__bullets flex justify-center gap-2 mt-8"
-//             data-glide-el="controls[nav]"
-//           >
-//             {testimonials.map((_, idx) => (
-//               <button
-//                 key={idx}
-//                 className="glide__bullet h-3 w-3 rounded-full bg-gray-400 dark:bg-gray-600"
-//                 data-glide-dir={`=${idx}`}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+        {/* Carousel container */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 pt-10 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
+        >
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="snap-start shrink-0 w-80 bg-gray-900 rounded-lg p-6 shadow hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="flex flex-col h-full">
+                {feature.icon}
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  {feature.title}
+                </h2>
+                <p className="text-base text-gray-400">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
