@@ -27,7 +27,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onClick={loading ? undefined : onClick}
       disabled={loading}
       className={cn(
-        "group flex items-center justify-center gap-2 pr-4 py-2 rounded-full dark:bg-gray-950 bg-white hover:bg-white border border-[#060606] dark:border-gray-800 font-bold text-sm transition-all active:scale-95 cursor-pointer dark:shadow disabled:cursor-not-allowed disabled:opacity-50",
+        "group flex items-center justify-center gap-2 pr-4 py-2 rounded-full dark:bg-gray-950 bg-white hover:bg-white border border-[#060606] dark:border-gray-100 dark:hover:bg-black dark:text-white font-bold text-sm transition-all active:scale-95 cursor-pointer dark:shadow disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
     >
