@@ -57,8 +57,10 @@ export default function FeatureSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
+      const cardWidth = 320; // width of each card + gap
+      const scrollAmount = direction === "left" ? -cardWidth * 3 : cardWidth * 3;
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -300 : 300,
+        left: scrollAmount,
         behavior: "smooth",
       });
     }
@@ -83,7 +85,7 @@ export default function FeatureSection() {
 
           <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right">
             <p className="text-gray-400 text-base md:text-lg mb-8 max-w-md">
-              Building the world’s best marketing. Your trusted partner for
+              Building the world&apos;s best marketing. Your trusted partner for
               strategy, design, and dev.
             </p>
             <div className="flex space-x-4">
@@ -104,27 +106,31 @@ export default function FeatureSection() {
         </div>
 
         {/* Carousel container */}
-        <div
-          ref={scrollRef}
-          className="flex gap-6 pt-10 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
-        >
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="snap-start shrink-0 w-80 bg-gray-900 rounded-lg p-6 shadow hover:shadow-md transition-shadow duration-300"
-            >
-              <div className="flex flex-col h-full">
-                {feature.icon}
-                <h2 className="text-xl font-semibold text-white mb-2">
-                  {feature.title}
-                </h2>
-                <p className="text-base text-gray-400">
-                  {feature.description}
-                </p>
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 pt-10 overflow-x-hidden scroll-smooth snap-x snap-mandatory"
+          >
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="snap-start shrink-0 w-[calc(33.333%-1rem)] md:w-[calc(33.333%-1.5rem)] bg-gray-900 rounded-lg p-6 shadow hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="flex flex-col h-full">
+                  {feature.icon}
+                  <h2 className="text-xl font-semibold text-white mb-2">
+                    {feature.title}
+                  </h2>
+                  <p className="text-base text-gray-400">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        
       </div>
     </section>
   );
