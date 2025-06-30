@@ -50,24 +50,25 @@ const Login = () => {
           <div className="flex flex-col sm:flex-row items-center justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
             <button
               type="submit"
-              className="flex items-center bg-black text-black px-5 py-2 rounded-full font-semibold
-                         hover:bg-gray-200 transition-colors duration-300 shadow w-full sm:w-auto justify-center text-white border
-                         "
+              className="flex items-center bg-black py-2 rounded-full font-semibold  transition-colors duration-300 shadow w-full sm:w-auto justify-center text-white border"
             >
-              <span className="w-8 h-8 flex items-center justify-center border border-white text-white rounded-full">
-                <Send className="" />
+              <span className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:translate-x-1 rounded-full border border-white w-8 h-8">
+                <Send className="w-5 h-5" />
               </span>
-              <span>Send</span>
+              <span className="px-5">Send</span>
             </button>
             <span className="text-gray-400">or</span>
 
-            <CustomButton
-            text="Contact me"
-            icon={<Mail size={20} />}
-            iconPosition="left"
-            className="bg-black text-white border-gray-50"
-          />
-          </div>
+             <button
+              type="submit"
+              className="flex items-center bg-black py-2 rounded-full font-semibold  transition-colors duration-300 shadow w-full sm:w-auto justify-center text-white border"
+            >
+              <span className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:translate-x-1 rounded-full border border-white w-8 h-8">
+                <Mail className="w-5 h-5" />
+              </span>
+              <span className="px-5">Contact Me</span>
+            </button>
+  </div>
         </form>
 
         {/* Social Media Links */}
