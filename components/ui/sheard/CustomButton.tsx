@@ -9,7 +9,7 @@ type CustomButtonProps = {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
-  loading?: boolean; // new loading prop
+  loading?: boolean;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -56,7 +56,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       ) : (
         <>
           {icon && iconPosition === "left" && (
-            <span className="transition-transform duration-300 ease-in-out group-hover:translate-x-1">
+            <span className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:translate-x-1 rounded-full border border-black w-8 h-8">
               {icon}
             </span>
           )}

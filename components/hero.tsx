@@ -26,11 +26,12 @@ export function Hero() {
         <div>
           {/* <div className="relative z-10"> */}
           {/* Side Social */}
-          <div className="absolute left-0 flex items-center">
-            <p className="-rotate-90 text-sm font-semibold text-gray-700">
+          <div className="absolute left-0 flex items-center justify-center">
+            <p className="-rotate-90 md:pl-8 text-sm font-semibold text-gray-700">
               @williamwoy
             </p>
             <div className=" -rotate-90 left-0 flex gap-2">
+
               <Link href="#">
                 <Facebook className="w-4 h-4" />
               </Link>

@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, CircleArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import CustomButton from "./ui/sheard/CustomButton";
 import { ModeToggle } from "./ModeToggle";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isLoading, setIsLoading] = useState(false); // ✅ Added loading state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,15 +44,6 @@ export function Navigation() {
     setIsOpen(false);
   };
 
-  // ✅ Loading simulation handler
-  const handleScrollWithLoading = (sectionId: string) => {
-    setIsLoading(true);
-    setTimeout(() => {
-      scrollToSection(sectionId);
-      setIsLoading(false);
-    }, 1000); // 1 second fake loading
-  };
-
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -85,10 +75,9 @@ export function Navigation() {
             <div><ModeToggle /></div>
             <CustomButton
               text="Start Project"
-              icon={<CircleArrowRight size={28} />}
+              icon={<ArrowRight size={28} />}
               iconPosition="left"
-              loading={isLoading}
-              onClick={() => handleScrollWithLoading("portfolio")}
+              onClick={() => scrollToSection("portfolio")}
             />
           </div>
 
@@ -122,10 +111,9 @@ export function Navigation() {
               ))}
               <CustomButton
                 text="Start Project"
-                icon={<CircleArrowRight size={24} />}
+                icon={<ArrowRight size={24} />}
                 iconPosition="right"
-                loading={isLoading}
-                onClick={() => handleScrollWithLoading("portfolio")}
+                onClick={() => scrollToSection("portfolio")}
               />
             </div>
           </div>
