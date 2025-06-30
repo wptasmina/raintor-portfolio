@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
+
 import { Send, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
-import CustomButton from '../ui/sheard/CustomButton';
+
 
 const Login = () => {
   return (
@@ -68,7 +68,8 @@ const Login = () => {
               </span>
               <span className="px-5">Contact Me</span>
             </button>
-  </div>
+    
+          </div>
         </form>
 
         {/* Social Media Links */}
