@@ -57,18 +57,15 @@ export default function FeatureSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const cardWidth = 320; // width of each card + gap
-      const scrollAmount = direction === "left" ? -cardWidth * 3 : cardWidth * 3;
-      scrollRef.current.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
+      const scrollAmount = direction === "left" ? -320 : 320;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <section className="bg-black dark:bg-gray-950 text-white border dark:border-gray-800 rounded-2xl overflow-hidden">
+    <section className="bg-black text-white border border-gray-800 rounded-2xl overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        {/* Header */}
         <div className="flex justify-start mb-12">
           <button className="flex items-center justify-center h-10 w-10 border border-gray-600 rounded-full hover:bg-gray-800 transition-colors duration-300">
             <MoveDown className="w-4 h-4" />
@@ -78,13 +75,13 @@ export default function FeatureSection() {
           </button>
         </div>
 
+        {/* Title and Arrows */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16">
           <div className="w-full md:w-1/2">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               My Extensive <br /> List of Skills
             </h1>
           </div>
-
           <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right">
             <p className="text-gray-400 text-base md:text-lg mb-8 max-w-md border-b border-gray-900 pb-2">
               Building the world&apos;s best marketing. Your trusted partner for
@@ -107,32 +104,28 @@ export default function FeatureSection() {
           </div>
         </div>
 
-        {/* Carousel container */}
-        <div className="relative">
+        {/* Responsive Scrollable Cards */}
+        <div className="relative pt-10">
           <div
             ref={scrollRef}
-            className="flex gap-6 pt-10 overflow-x-hidden scroll-smooth snap-x snap-mandatory"
+            className="flex gap-6 overflow-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide"
           >
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="snap-start shrink-0 w-[calc(33.333%-1rem)] md:w-[calc(33.333%-1.5rem)] bg-[#141414] rounded-lg p-6 shadow hover:shadow-md transition-shadow duration-300"
+                className="snap-start shrink-0 min-w-[280px] sm:min-w-[320px] md:min-w-[33.333%] bg-[#141414] rounded-lg p-6 shadow hover:shadow-md transition-shadow duration-300"
               >
                 <div className="flex flex-col h-full">
                   {feature.icon}
-                  <h2 className="text-xl font-semibold text-white mb-2">
+                  <h2 className="text-xl font-semibold mb-2">
                     {feature.title}
                   </h2>
-                  <p className="text-base text-gray-400">
-                    {feature.description}
-                  </p>
+                  <p className="text-base text-gray-400">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        
       </div>
     </section>
   );
