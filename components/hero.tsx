@@ -7,7 +7,14 @@ import CustomButton from "./ui/sheard/CustomButton";
 
 export function Hero() {
   return (
-    <section className="py-32 min-h-screen overflow-hidden relative">
+    <section className="py-32 min-h-screen overflow-hidden relative"
+    style={{
+    backgroundImage: "url('/banner.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-16 md:px-4">
         <div className="lg:max-w-3xl">
           {/* Heading */}

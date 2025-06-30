@@ -5,7 +5,14 @@ import { MoveDown} from "lucide-react";
 export default function About() {
 
   return (
-    <section className="bg-white dark:bg-gray-950 text-black dark:text-gray-300  dark:border-gray-800 overflow-hidden">
+    <section className="bg-white dark:bg-gray-950 text-black dark:text-gray-300  dark:border-gray-800 overflow-hidden"
+    style={{
+    backgroundImage: "url('/about.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex justify-end mb-12 max-w-7xl mx-auto">
           <button className="flex items-center justify-center h-10 w-10 border border-gray-600 rounded-full hover:bg-gray-800 transition-colors duration-300">
