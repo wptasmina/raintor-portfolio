@@ -56,7 +56,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       ) : (
         <>
           {icon && iconPosition === "left" && (
-            <span className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:translate-x-1 rounded-full border border-black w-8 h-8">
+            <span className="flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:translate-x-1 rounded-full border border-black dark:border-white w-8 h-8">
               {icon}
             </span>
           )}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Send, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import CustomButton from '../ui/sheard/CustomButton';
 
 const Login = () => {
   return (
@@ -56,14 +57,19 @@ const Login = () => {
               <span>Send</span>
             </button>
             <span className="text-gray-400">or</span>
-            <button
-              type="button"
-              className="flex items-center space-x-2 border border-white text-white px-5 py-2.5 rounded-full font-semibold
-                         hover:bg-white hover:text-black transition-colors duration-300 shadow w-full sm:w-auto justify-center"
+            <div  className="bg-black text-white"
             >
-              <Mail className="w-5 h-5" />
-              <span>Contact me</span>
-            </button>
+            <CustomButton
+            text="Contact me"
+            icon={<Mail size={20} />}
+            iconPosition="left"
+            className="bg-black text-white dark:border-gray-300"
+          />
+            
+
+             
+
+            </div>
           </div>
         </form>
 
